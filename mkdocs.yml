@@ -1,0 +1,103 @@
+site_name: O'Matrix — Documentation Technique
+site_description: >
+  Documentation complète du projet O'Matrix — Cube LED RGB 10×10×10
+  réalisé à l'EPAC/UAC dans le cadre du Projet en Tutorat 2024-2025.
+site_author: HOUNSA Kévin & YEHOUENOU Chrysostome
+docs_dir: docs
+repo_url: ""
+
+theme:
+  name: material
+  language: fr
+  palette:
+    - scheme: slate
+      primary: cyan
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Passer au mode clair
+    - scheme: default
+      primary: cyan
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Passer au mode sombre
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+    - toc.integrate
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang: fr
+  - glightbox:          # ← ajouter ceci
+  
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - def_list
+  - toc:
+      permalink: true
+
+nav:
+  - 🏠 Accueil: index.md
+  - 🏗 Architecture:
+    - Vue d'ensemble: architecture/vue-ensemble.md
+    - Matériel: architecture/materiel.md
+    - Multiplexage: architecture/multiplexage.md
+    - PCBs: architecture/pcbs.md
+    - Réalisation & Assemblage : architecture/assemblage.md
+  - 💻 Firmware:
+    - Structure du code: firmware/structure.md
+    - Driver TLC5940: firmware/tlc5940.md
+    - Driver 74HC595: firmware/hc595.md
+    - WebSocket ESP-IDF: firmware/websocket.md
+    - Parsing JSON: firmware/json.md
+    - Buffer & Indexation: firmware/buffer.md
+  - 🖥 Interface Web:
+    - Architecture React: interface/architecture.md
+    - WebSocket client: interface/websocket.md
+    - Serveur relay Node.js: interface/serveur.md
+  - ⚠ Problèmes & Solutions:
+    - Signaux dégradés (GSCLK/SCLK): problemes/signaux.md
+    - Fragmentation JSON: problemes/fragmentation-json.md
+    - Linkage ESP-IDF: problemes/linkage.md
+    - Indexation LEDs: problemes/indexation.md
+    - Connexion WebSocket: problemes/websocket-connexion.md
+    - Buffer superposition: problemes/buffer-superposition.md
+  - 📎 Annexes:
+    - Liste du matériel: annexes/materiel.md
+    - Broches ESP32: annexes/broches.md
+    - Références: annexes/references.md
